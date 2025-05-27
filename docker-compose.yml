@@ -6,7 +6,7 @@ services:
 # Servicio 1: Definimos el servicio APACHE. Utilizamos imagen: debian+apache+PHP para crear los contenedores del servicio.
   apache:
   # Podemos usar una imagen predefinida utilizando la clave yaml: image. En este caso: php:8.2-apache. La comento porque no la vamos a usar.
-    image: uliseesscg3/actividad61-aplicacion-crud-php:latest
+    image: uliseesscg3/actividad61-aplicacion-crud-php2:latest
 # Publica el puerto 80 del contenedor como 80 en la red del host de docker    
     ports: 
       - 80:80
@@ -17,11 +17,11 @@ services:
       - MARIADB_DATABASE=${DATABASE}
       - MARIADB_USER=${USERNAME}
       - MARIADB_PASSWORD=${PASSWORD}
-    volumes:
+  #  volumes:
 # Uno de tipo volumen y otro de tip "bind-mount"
       - ./src:/var/www/html 
     depends_on:
-      - mariadb
+   #   - mariadb
 
 
 # Servicio 2: mariadb
